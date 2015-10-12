@@ -1,0 +1,24 @@
+#
+# Install Cassandra cluster on Centos
+# C* 2.1.9 / Centos 6.6
+#
+# In "/etc/profile", set variables:
+# export DC="DC1" # defaults to DC1 if ommited
+# export RACK="RAC1" # defaults to RAC1 if ommited
+#
+
+- name: Cassandra install
+  hosts: cassandra-all
+  user: root
+  roles:
+    - common
+    - java
+    - datastax-yum-repo
+    - dsc-cassandra
+    - datastax-agent
+
+
+
+  tasks:
+  - name: Restart agent
+    service: name=datastax-agent state=restarted        

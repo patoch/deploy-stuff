@@ -1,0 +1,17 @@
+- name: Install Cassandra
+  yum: name=dsc21-2.1.9-1 state=present update_cache=yes
+
+- name: Create shell script for os tuning
+  action: template src=sh/tune-sys.sh dest=/tmp/tune-sys.sh mode=750
+
+- name: Tune OS
+  action: shell /tmp/tune-sys.sh
+
+- name: Copy cassandra.yaml template
+  action: template src=conf/cassandra.yaml dest=/etc/cassandra/conf/cassandra.yaml
+
+- name: Copy cassandra-rackdc.properties template
+  action: template src=conf/cassandra-rackdc.properties dest=/etc/cassandra/conf/cassandra-rackdc.properties
+
+- name: Copy cassandra-env.sh template
+  action: template src=conf/cassandra-env.sh dest=/etc/cassandra/conf/cassandra-env.sh

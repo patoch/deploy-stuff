@@ -1,0 +1,2 @@
+- name: Add Datastax yum repository
+  action: template src=conf/datastax.repo dest=/etc/yum.repos.d/datastax.repo

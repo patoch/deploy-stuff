@@ -1,0 +1,17 @@
+#
+# Install Opscenter
+# Latest version
+#
+
+- name: OPSCenter install
+  hosts: opscenter
+  user: root
+  roles:
+    - common
+    - datastax-yum-repo
+    - opscenter
+
+
+  tasks:
+  - name: Restart OPSCenter
+    service: name=opscenterd state=restarted        

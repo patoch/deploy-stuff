@@ -1,0 +1,5 @@
+- name: Install Datastax agents
+  yum: name=datastax-agent state=present update_cache=yes  
+
+- name: Copy address.yaml template
+  action: template src=conf/address.yaml dest=/var/lib/datastax-agent/conf/address.yaml

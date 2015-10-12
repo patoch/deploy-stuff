@@ -1,0 +1,8 @@
+  - name: Install NTP
+    yum: name=ntp state=present update_cache=yes
+
+  - name: Install wget
+    yum: name=wget state=present update_cache=yes
+
+  - name: Install nano
+    yum: name=nano state=present update_cache=yes
