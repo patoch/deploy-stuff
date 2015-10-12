@@ -1,0 +1,5 @@
+- name: Download Kafka tarball
+  get_url: url=http://apache.crihan.fr/dist/kafka/0.8.2.2/kafka_2.10-0.8.2.2.tgz dest=/tmp/kafka_2.10-0.8.2.2.tgz
+
+- name: Untar Kafka
+  unarchive: src=/tmp/kafka_2.10-0.8.2.2.tgz dest=/opt copy=no

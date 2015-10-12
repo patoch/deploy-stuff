@@ -1,0 +1,18 @@
+#
+# Install DSE cluster on Centos
+# DSE 4.8.0 / Centos 6.6
+#
+
+- name: DSE install
+  hosts: datastax-all
+  user: root
+  roles:
+    - common
+    - java
+    - datastax-yum-repo
+    - dse
+
+  tasks:
+  - name: Restart agent
+    service: name=datastax-agent state=restarted
+

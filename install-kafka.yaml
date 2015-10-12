@@ -1,0 +1,13 @@
+#
+# Install Kafka cluster on Centos
+# Kafka 0.8.2.2 / Centos 6.6
+#
+#
+
+- name: Kafka install
+  hosts: kafka-all
+  user: root
+  roles:
+#    - common
+    - java
+    - kafka

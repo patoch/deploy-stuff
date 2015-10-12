@@ -269,15 +269,15 @@ commitlog_segment_size_in_mb: 32
 # any class that implements the SeedProvider interface and has a
 # constructor that takes a Map<String, String> of parameters will do.
 seed_provider:
-    # Addresses of hosts that are deemed contact points. 
-    # Cassandra nodes use this list of hosts to find each other and learn
+    # Addresses of hosts.datastax that are deemed contact points.
+    # Cassandra nodes use this list of hosts.datastax to find each other and learn
     # the topology of the ring.  You must change this if you are running
     # multiple nodes!
     - class_name: org.apache.cassandra.locator.SimpleSeedProvider
       parameters:
           # seeds is actually a comma-delimited list of addresses.
           # Ex: "<ip1>,<ip2>,<ip3>"
-          - seeds: "127.0.0.1"
+          - seeds: "{{seeds}}"
 
 # For workloads with more data than can fit in memory, Cassandra's
 # bottleneck will be reads that need to fetch data from
@@ -701,7 +701,7 @@ cross_node_timeout: false
 #
 # You can use a custom Snitch by setting this to the full class name
 # of the snitch, which will be assumed to be on your classpath.
-endpoint_snitch: com.datastax.bdp.snitch.DseSimpleSnitch
+endpoint_snitch: GossipingPropertyFileSnitch
 
 # controls how often to perform the more expensive part of host score
 # calculation
@@ -710,7 +710,7 @@ dynamic_snitch_update_interval_in_ms: 100
 # possibly recover
 dynamic_snitch_reset_interval_in_ms: 600000
 # if set greater than zero and read_repair_chance is < 1.0, this will allow
-# 'pinning' of replicas to hosts in order to increase cache capacity.
+# 'pinning' of replicas to hosts.datastax in order to increase cache capacity.
 # The badness threshold will control how much worse the pinned host has to be
 # before the dynamic snitch will prefer other replicas over it.  This is
 # expressed as a double which represents a percentage.  Thus, a value of
