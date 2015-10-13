@@ -1,0 +1,32 @@
+- name: Download Zookeeper tarball
+  get_url: url=http://apache.crihan.fr/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz dest=/tmp/zookeeper-3.4.6.tar.gz
+
+- name: Untar Zookeeper
+  unarchive: src=/tmp/zookeeper-3.4.6.tar.gz dest=/opt copy=no
+
+- name: Create symbolic link to /opt/zk
+  file: src=/opt/zookeeper-3.4.6 dest=/opt/zk state=link
+
+- name: Create group zk
+  group: name=zk state=present
+
+- name: Create user zk
+  user: name=zk groups=zk home=/opt/zk
+
+- name: Create data directory
+  file: path=/var/lib/zookeeper/data state=directory mode=0755 owner=zk group=zk
+
+- name: Create log directory
+  file: path=/var/log/zookeeper state=directory mode=0755 owner=zk group=zk
+
+- name: Set environment variable for zookeeper log directory
+  command: sed -i -e 's#ZOO_LOG_DIR="."#ZOO_LOG_DIR="/var/log/zookeeper"#g' /opt/zk/bin/zkEnv.sh
+
+- name: Copy Zookeeper configuration
+  action: template src=conf/zoo.cfg dest=/opt/zk/conf/zoo.cfg
+
+- name: Copy Zookeeper init.d script
+  action: template src=sh/init.d dest=/etc/init.d/zookeeper mode=755
+
+- name: Add zookeeper to chkconfig
+  command: chkconfig --add zookeeper

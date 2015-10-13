@@ -1,0 +1,13 @@
+#
+# Stanadalone install of a Zookeeper cluster on Centos
+# Zookeeper 3.4.6 / Centos 6.6
+#
+#
+
+- name: Zookeeper install
+  hosts: zk-all
+  user: root
+  roles:
+#    - common
+#    - java
+    - zookeeper
