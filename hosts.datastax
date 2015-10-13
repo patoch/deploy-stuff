@@ -3,7 +3,7 @@ seeds=10.240.0.2
 opsc_ip=10.240.0.2
 datastax_distribution=enterprise
 datastax_username=pguillebert_gmail.com
-datastax_password=kWEyHs98zzAavXT
+datastax_password=
 
 [opscenter]
 10.240.0.2
