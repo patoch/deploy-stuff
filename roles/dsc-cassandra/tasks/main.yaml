@@ -7,8 +7,8 @@
 - name: Tune OS
   action: shell /tmp/tune-sys.sh
 
-- name: Copy cassandra.yaml template
-  action: template src=conf/cassandra.yaml dest=/etc/cassandra/conf/cassandra.yaml
+- name: Copy conf template
+  action: template src=conf/conf dest=/etc/cassandra/conf/conf
 
 - name: Copy cassandra-rackdc.properties template
   action: template src=conf/cassandra-rackdc.properties dest=/etc/cassandra/conf/cassandra-rackdc.properties

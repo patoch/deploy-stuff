@@ -6,7 +6,7 @@ echo 0 > /proc/sys/vm/zone_reclaim_mode
 blockdev --setra 64 /dev/vda1
 
 # swap off
-echo  0 > /proc/sys/vm/swappiness
+echo  1 > /proc/sys/vm/swappiness
 swapoff --all
 
 

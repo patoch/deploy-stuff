@@ -1,5 +1,23 @@
+- name: Create kafka user group
+  group: name=kafka state=present
+
+- name: Create user kafka
+  user: name=kafka groups=kafka home=/opt/kafka
+
 - name: Download Kafka tarball
   get_url: url=http://apache.crihan.fr/dist/kafka/0.8.2.2/kafka_2.10-0.8.2.2.tgz dest=/tmp/kafka_2.10-0.8.2.2.tgz
 
 - name: Untar Kafka
   unarchive: src=/tmp/kafka_2.10-0.8.2.2.tgz dest=/opt copy=no
+
+- name: Create symbolic link to /opt/kafka
+  file: src=/opt/kafka_2.10-0.8.2.2 dest=/opt/kafka state=link
+
+- name: Create log directory
+  file: path=/var/log/kafka state=directory mode=0755 owner=kafka group=kafka
+
+- name: Copy Kafka init.d script
+  action: template src=sh/init.d dest=/etc/init.d/kafka mode=755
+
+- name: Add kafka to chkconfig
+  command: chkconfig --add kafka
