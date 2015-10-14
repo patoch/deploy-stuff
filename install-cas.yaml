@@ -9,6 +9,7 @@
   user: root
   roles:
     - common
+    - dns
     - java
     - datastax-yum-repo
     - dsc-cassandra

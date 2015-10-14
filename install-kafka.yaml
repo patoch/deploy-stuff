@@ -8,6 +8,6 @@
   hosts: kafka-all
   user: root
   roles:
-#    - common
-#    - java
+    - common
+    - java
     - kafka

@@ -1,4 +1,5 @@
 [kafka-all:vars]
+zookeeper_connect=localhost:2181
 
 [kafka-dc1:vars]
 

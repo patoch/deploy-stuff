@@ -1,0 +1,8 @@
+- name: Copy host files to be added to /etc/hosts
+  action: template src=conf/hosts dest=/tmp/hosts
+
+- name: Clean hosts from your domain
+  command: sed -i '/\<datastax.com\>/d' /etc/hosts
+
+- name: Add hosts
+  shell: cat /tmp/hosts >> /etc/hosts

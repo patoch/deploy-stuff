@@ -1,12 +1,17 @@
 [datastax-all:vars]
 seeds=10.240.0.2
-opsc_ip=10.240.0.2
+opsc_ip=10.240.0.13
 datastax_distribution=enterprise
 datastax_username=pguillebert_gmail.com
-datastax_password=
+datastax_password=kWEyHs98zzAavXT
+
+[opscenter:vars]
+datastax_distribution=enterprise
+datastax_username=pguillebert_gmail.com
+datastax_password=kWEyHs98zzAavXT
 
 [opscenter]
-10.240.0.2
+130.211.52.123
 
 [datastax-dc1:vars]
 solr_enabled=0
@@ -19,6 +24,8 @@ spark_enabled=0
 
 [datastax-dc1-rac1]
 104.155.6.120
+130.211.78.168
+23.251.131.139
 
 [datastax-dc1-rac2]
 

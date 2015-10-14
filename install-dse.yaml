@@ -7,9 +7,10 @@
   hosts: datastax-all
   user: root
   roles:
-    - common
-    - java
-    - datastax-yum-repo
+    #- common
+    #- dns
+    #- java
+    #- datastax-yum-repo
     - dse
 
   tasks:

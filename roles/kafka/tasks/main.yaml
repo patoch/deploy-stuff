@@ -21,3 +21,12 @@
 
 - name: Add kafka to chkconfig
   command: chkconfig --add kafka
+
+- name: Copy Kafka server.properties
+  action: template src=conf/server.properties dest=/opt/kafka/config/server.properties
+
+- name: Copy script to set broker id
+  action: template src=sh/set_brokerid.sh dest=/tmp/set_brokerid.sh mode=755
+
+- name: Set broker id as ip on eth0, no dots
+  command: /tmp/set_brokerid.sh
