@@ -7,11 +7,13 @@
   hosts: datastax-all
   user: root
   roles:
-    #- common
-    #- dns
-    #- java
-    #- datastax-yum-repo
+    ##- cassandra-cleandata
+    - common
+    - dns
+    - java
+    - datastax-yum-repo
     - dse
+    - datastax-agent
 
   tasks:
   - name: Restart agent

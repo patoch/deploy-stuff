@@ -8,6 +8,6 @@
   hosts: zk-all
   user: root
   roles:
-#    - common
-#    - java
+    - common
+    - java
     - zookeeper

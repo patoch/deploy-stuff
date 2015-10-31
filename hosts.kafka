@@ -1,12 +1,14 @@
 [kafka-all:vars]
-zookeeper_connect=localhost:2181
+zookeeper_connect=10.240.0.2:2181
 
 [kafka-dc1:vars]
 
 [kafka-dc2:vars]
 
 [kafka-dc1-rac1]
-104.155.6.120
+104.155.12.14
+146.148.9.116
+146.148.28.54
 
 [kafka-dc1-rac2]
 

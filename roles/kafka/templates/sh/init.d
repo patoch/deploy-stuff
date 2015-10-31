@@ -10,6 +10,8 @@
 
 source /etc/rc.d/init.d/functions
 
+export JMX_PORT=9999
+
 KAFKA_HOME=/opt/kafka
 KAFKA_USER=kafka
 

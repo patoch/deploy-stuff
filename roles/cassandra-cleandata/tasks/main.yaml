@@ -1,0 +1,5 @@
+  - name: Stop node
+    service: name=dse state=stopped
+
+  - name: Install wget
+    shell: rm -rf /var/lib/cassandra/*
