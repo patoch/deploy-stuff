@@ -3,12 +3,12 @@ seeds=146.148.17.145, 130.211.92.133
 opsc_ip=130.211.69.235
 datastax_distribution=enterprise
 datastax_username=pguillebert_gmail.com
-datastax_password=kWEyHs98zzAavXT
+datastax_password=
 
 [opscenter:vars]
 datastax_distribution=enterprise
 datastax_username=pguillebert_gmail.com
-datastax_password=kWEyHs98zzAavXT
+datastax_password=
 
 [opscenter]
 130.211.69.235
