@@ -1,0 +1,17 @@
+- name: Install DSE
+  yum: name=dse-full state=present update_cache=yes
+
+- name: Create shell script for os tuning
+  action: template src=sh/tune-sys.sh dest=/tmp/tune-sys.sh mode=750
+
+- name: Tune OS
+  action: shell /tmp/tune-sys.sh
+
+- name: Copy conf template
+  action: template src=conf/conf dest=/etc/cassandra/conf/conf
+
+- name: Copy cassandra-rackdc.properties template
+  action: template src=conf/cassandra-rackdc.properties dest=/etc/dse/resources/cassandra/conf/cassandra-rackdc.properties
+
+- name: Copy cassandra-env.sh template
+  action: template src=conf/cassandra-env.sh dest=/etc/dse/resources/cassandra/conf/cassandra-env.sh
