@@ -15,7 +15,7 @@ if not DC == "":
 current_min = RANGE_MIN
 current_max = current_min + TOKEN_COUNT_BY_STEP
 
-print "nodetool repair %s -st %s -et %s %s %s" % (DC, current_min, current_max, KEYSPACE, TABLE)
+print "nodetool repair %s -par -st %s -et %s %s %s" % (DC, current_min, current_max, KEYSPACE, TABLE)
 
 while True:
 	current_min = current_max
@@ -30,8 +30,8 @@ while True:
 		current_max = -10		
 
 	if current_max > RANGE_MAX:
-		print "nodetool repair %s-st %s -et %s %s %s" % (DC, current_min, RANGE_MAX, KEYSPACE, TABLE)	
+		print "nodetool repair %s-par  -st %s -et %s %s %s" % (DC, current_min, RANGE_MAX, KEYSPACE, TABLE)
 		exit(0)
-	print "nodetool repair %s-st %s -et %s %s %s" % (DC, current_min, current_max, KEYSPACE, TABLE)
+	print "nodetool repair %s-par -st %s -et %s %s %s" % (DC, current_min, current_max, KEYSPACE, TABLE)
 
 
