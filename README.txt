@@ -1,3 +1,4 @@
+# CASOPS
 CasOps enables you to deploy automatically a multi-dc Casandra cluster, with agents and OPSCenter.
 
 OS supported:
